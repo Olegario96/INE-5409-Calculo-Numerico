@@ -2,7 +2,7 @@ function x = fGaussSeidel(n, sI, criterio)
     x = sI;
     k = 0;
     dif = 9999;
-    lambda = 1.12;
+    lambda = 1.2;
     while dif > criterio && k < 1000
         k++;
         x(1) = (1 - lambda) * x(1) + lambda * (1.5 - x(2));
