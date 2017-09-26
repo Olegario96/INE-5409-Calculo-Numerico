@@ -1,15 +1,9 @@
-function multi = calcula_multiplicidade(polinomio, raiz)
-    multi = 0;
-    soma_restos = 0.0;
-    restos = restos(polinomio, raiz);
-    num_restos = length(restos);
+function multi = calcula_multiplicidade(r)
+    soma = abs(r(1))+  abs(r(2));
+    multi = 1;
     
-    for i = 1 : num_restos
-       soma_restos += restos(i);
-       if (soma_restos <= 1e-10)
-            multi += 1;
-        else
-            break
-        endif
+    while soma < 1e-10
+        multi += 1;
+        soma = soma + abs(r(multi + 1));
     end
 end
