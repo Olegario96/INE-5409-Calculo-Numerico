@@ -8,7 +8,11 @@ format long
 #}
 
 primeira_raiz = 0;
+<<<<<<< HEAD
 eq_original = [1 -3.4 +2.35  4.32 -7.1685 +1.56006 +3.287061 -2.480058 0.531441  0  0  0];
+=======
+eq_original = [1, -3.4, 2.35, 4.32, -7.1685, 1.56006, 3.287061, -2.480058, 0.531441, 0, 0, 0];
+>>>>>>> 302842005fdc188b4e52da751dcd00b87097a385
 n = length(eq_original);
 raizes_calculadas(n - 1) = 0;
 
@@ -49,11 +53,20 @@ transpose(raizes_calculadas)
 %---------- ITEM C ----------%
 
 "O polinomio fatorado fica na forma: "
+<<<<<<< HEAD
 "x*x*x*(x+1)*(x+1)*(x-0.8999)^6"
+=======
+"x*x*x*(x+1)*(x+1)*(x-0.89822+0.00105i)*(x-0.89822-0.00105i)*(x-0.90002+0.00207i)*(x-0.90002-0.00207i)*(x-0.89998-0.00207i)*(x-0.89998+0.00207i))"
+>>>>>>> 302842005fdc188b4e52da751dcd00b87097a385
 
 %---------- ITEM D ----------%
 "A solucao dada aplicando a funcao 'roots' na equacao original eh"
 transpose(roots(eq_original))
 
+<<<<<<< HEAD
 "A solucao dada (tambem usando a equacao original) pelo Wolfram|Alpha eh:"
 transpose(raizes_wolfram = [-1, 0, 0.898175-0.00105142i, 0.898175+0.00105142i, 0.899996-0.00210907i, 0.899996+0.00210907i, 0.901828-0.00105766i, 0.901828+0.00105766i])	 	  	 	   	      	    		   		    	 	
+=======
+"A solucao dada (tambem usando a equacao original) pelo Wolfram|Alph eh:"
+raizes_wolfram = [-1, 0, 0.898175-0.00105142i, 0.898175+0.00105142i, 0.899996-0.00210907i, 0.899996+0.00210907i, 0.901828-0.00105766i, 0.901828+0.00105766i]
+>>>>>>> 302842005fdc188b4e52da751dcd00b87097a385
