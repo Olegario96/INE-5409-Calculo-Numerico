@@ -1,4 +1,4 @@
-function x = fGauss(A)
+function x = f_calcula_gauss(A)
     n = length(A) - 1;
 
     for k = 1 : n-1

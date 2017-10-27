@@ -1,6 +1,6 @@
 format long
 
-n = 7;
+n = 25;
 lim_inferior = 0.1;
 lim_superior = 2;
 numero_pontos = 100;
@@ -8,17 +8,22 @@ numero_pontos = 100;
 h = (lim_superior - lim_inferior) / n;
 valores_x = lim_inferior : h : lim_superior;
 
-y_exato = f_analisada(valores_x, lim_inferior, lim_superior);;
+h = (lim_superior - lim_inferior) / numero_pontos;
+valores_x_para_analisar = lim_inferior : h : lim_superior;
+
+y_exato = f_analisada(valores_x, lim_inferior, lim_superior);
 
 %---- Interpolador polinomial ----%
 "Coeficientes do polinomio interpolador"
 coefs_interpolador = f_calcula_coefs_interpolador_pol(n, valores_x, y_exato)
 
 "Valores de Y calculado por Horner nos coeficientes calculados"
-y_aprox_interpolador = f_pn_horner(n, coefs_interpolador, valores_x)
+y_exato = f_analisada(valores_x_para_analisar, lim_inferior, lim_superior)
+y_aprox_interpolador = f_pn_horner(n, coefs_interpolador, valores_x_para_analisar)
 
 "Erro maximo do interpolador polinomial"
 erro_interpolador_polinomial = max(abs(y_aprox_interpolador - y_exato))
+
 %---- Serie Maclauren ----%
 "Coeficientes calculados por MacLauren"
 n = 110;
@@ -27,11 +32,9 @@ coefs_maclauren = f_calcula_ln_maclauren(n)
 "Valores de Y calculado por Horner aplicado nos coeficientes calculados"
 % Aqui existe necessidade de recalcular o h e valores_x pois a serie de
 % MacLauren utiliza numero de pontos.
-h = (lim_superior - lim_inferior) / numero_pontos;
-valores_x = lim_inferior : h : lim_superior;
 
 % Formula da TL nesse problema
-valores_t = (2/1.9) .* valores_x  .-(2.1/1.9);
+valores_t = (2/1.9) .* valores_x_para_analisar  .-(2.1/1.9);
 y_exato = f_analisada(valores_t, lim_inferior, lim_superior);
 y_aprox_maclauren = f_pn_horner(n, coefs_maclauren, valores_t)
 
@@ -52,3 +55,8 @@ y_aprox_tchebyshev = f_calcula_tchebychev(n, coefs_tchebyshev, valores_x)
 erro_tchebyshev = max(abs(y_aprox_tchebyshev - y_exato))
 
 %---- Padé ----%
+%npade = n
+%mpade = m
+%coefs_maclauren = f_calcula_ln_maclauren(npade + mpade)
+%[numerador_pade denominador_pade] = f_calcula_pade(npade, mpade, coefs_maclauren)
+%y_pade = f_calcula_maclauren(npade, numerador_pade, tp) ./ f_calcula_maclauren(mpade, denominador_pade, tp)
