@@ -1,6 +1,6 @@
 format long
 
-n = 25;
+n = 8;
 lim_inferior = 0.1;
 lim_superior = 2;
 numero_pontos = 100;
